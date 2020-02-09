@@ -1,0 +1,116 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Dernek index{% endblock %}
+
+
+{% block body %}
+
+    <SCRIPT language="JavaScript" type="text/javascript">
+        function openWin( windowURL, windowName , windowFeatures) { window.open( windowURL, windowName , windowFeatures) ; }
+    </SCRIPT>
+
+    <h1>Dernek index</h1>
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                    <h2 class="page-title">İlanlar</h2>
+                    <div class="ml-auto text-right">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Library</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+    <table class="table">
+        <h3><a class="btn btn-primary btn-lg" href="{{ path('admin_dernek_new') }}">Create new</a></h3>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Star</th>
+                <th>Adress</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>City</th>
+                <th>Gallery</th>
+                <th>Status</th>
+                <th>Düzenle</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dernek in derneks %}
+            <tr>
+                <td>{{ dernek.id }}</td>
+                <td>{{ dernek.title }}</td>
+                <td><img src="{{ asset('uploads/images/' ~ dernek.image) }}"  height="40">
+
+                <td>{{ dernek.star }}</td>
+                <td>{{ dernek.adress }}</td>
+                <td>{{ dernek.phone }}</td>
+                <td>{{ dernek.email }}</td>
+                <td>{{ dernek.city }}</td>
+                <td>
+                    <a href="javascript:openWin('{{ path('admin_image_new',{'id':dernek.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=50,left=100,menuBar=no,scrollBars=yes,resizable=no,width=900,height=600');">
+                        <img src="{{ asset('assets/admin/img') }}/gallery.png" height="40">
+                    </a>
+                </td>
+                <td>{{ dernek.status }}</td>
+                <td>
+                    <a class="btn btn-primary btn-lg" href="{{ path('admin_dernek_show', {'id': dernek.id}) }}">Show</a>
+                    <a class="btn btn-primary btn-lg" href="{{ path('admin_dernek_edit', {'id': dernek.id}) }}">Edit</a>
+                </td>
+                <td>
+                        {{ include('admin/dernek/_delete_form.html.twig') }}
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    </div>
+    </div>
+    </div>
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Right sidebar -->
+    <!-- ============================================================== -->
+    <!-- .right-sidebar -->
+    <!-- ============================================================== -->
+    <!-- End Right sidebar -->
+    <!-- ============================================================== -->
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,135 @@
+{% extends 'homebase1.html.twig' %}
+
+{% block title %}{{ dernek.title}}{% endblock %}
+
+
+{% block body %}
+
+    <script src="{{ asset('assets') }}/js/jquery.js"></script>
+    <script src="{{ asset('assets') }}/js/bootstrap.min.js"></script>
+    <script src="{{ asset('assets') }}/js/jquery.scrollUp.min.js"></script>
+    <script src="{{ asset('assets') }}/js/price-range.js"></script>
+    <script src="{{ asset('assets') }}/js/jquery.prettyPhoto.js"></script>
+    <script src="{{ asset('assets') }}/js/main.js"></script>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="span7">
+                        <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+
+                            <div class="carousel-inner">
+
+
+                                {% set count=0 %}
+                                {% for rs in images %}
+                                    {% set count=count+1 %}
+                                    <div class="item {% if count==1 %}active{% endif %}">
+                                        <a href="{{ path('dernek_show', {'id': rs.id}) }}">
+                                            <img  src="{{ asset('uploads/images/' ~ rs.image) }}" class="center-block"   style="border-radius: 3%; height:300px; width: 300px" alt="" />
+                                        </a>
+                                        <div class="carousel-caption">
+
+
+                                        </div>
+                                    </div>
+                                {% endfor %}
+
+                            </div>
+
+                            <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="blog-post-area">
+
+                        <div class="single-blog-post">
+
+                            <div class="post-meta">
+                                <h3 class="title text-center">İlan Bilgisi</h3>
+
+
+                                <table class="table">
+                                    <tbody>
+
+                                    <tr>
+                                        <th>Title</th>
+                                        <td>{{ dernek.title }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Description</th>
+                                        <td>{{ dernek.description }}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <th>Adress</th>
+                                        <td>{{ dernek.adress }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phone</th>
+                                        <td>{{ dernek.phone }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Fax</th>
+                                        <td>{{ dernek.fax }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>{{ dernek.email }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>City</th>
+                                        <td>{{ dernek.city }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Country</th>
+                                        <td>{{ dernek.country }}</td>
+                                    </tr>
+
+
+
+
+                                    </tbody>
+                                </table>
+
+
+
+                            </div>
+                        </div>
+                    </div><!--/blog-post-area-->
+                </div>
+            </div>
+            <div class="category-tab shop-details-tab"><!--category-tab-->
+                <div class="col-sm-12">
+                    <ul class="nav nav-tabs">
+
+                        <li class="active"><a href="#reviews" data-toggle="tab">Detay</a></li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade active in" id="reviews">
+                    <div class="col-sm-12">
+
+                        <p>{{ dernek.detail | raw}}</p>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

@@ -1,0 +1,55 @@
+
+<script src="{{ asset('assets') }}/js/jquery.js"></script>
+<script src="{{ asset('assets') }}/js/bootstrap.min.js"></script>
+<script src="{{ asset('assets') }}/js/jquery.scrollUp.min.js"></script>
+<script src="{{ asset('assets') }}/js/price-range.js"></script>
+<script src="{{ asset('assets') }}/js/jquery.prettyPhoto.js"></script>
+<script src="{{ asset('assets') }}/js/main.js"></script>
+
+
+<section id="slider"><!--slider-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#slider-carousel" data-slide-to="1"></li>
+                        <li data-target="#slider-carousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <div class="carousel-inner">
+
+
+
+                        {% set count=0 %}
+                        {% for rs in slider %}
+                            {% set count=count+1 %}
+                            <div class="item {% if count==1 %}active{% endif %}">
+                                <a href="{{ path('dernek_show', {'id': rs.id}) }}">
+                                <img  src="{{ asset('uploads/images/' ~ rs.image) }}" class="center-block"   style="border-radius: 3%; height: 450px; width: 450px" alt="" />
+                                </a>
+                                <div style="position: absolute;left: -20px; top:-40px" class="carousel-caption">
+                                    <h3 style="color: -moz-mac-menutextselect" class="align-content-xl-start">{{ rs.title }}</h3>
+
+                                </div>
+                            </div>
+                        {% endfor %}
+
+
+                    </div>
+
+
+                    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section><!--/slider-->

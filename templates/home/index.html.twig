@@ -1,0 +1,65 @@
+
+
+
+
+{% extends 'homebase.html.twig' %}
+
+
+
+{% block slider %}{% include('home/slider.html.twig') %}{% endblock %}
+{% block sidebar %}{% include('home/sidebar.html.twig') %}{% endblock %}
+
+
+{% block body %}
+    <div class="col-sm-9 padding-right">
+
+        <div class="features_items"><!--features_items-->
+            <h2 class="title text-center">İlanlar</h2>
+
+            <div class="row-sm-4">
+                <div class="row">
+                    {% for rs in derneks %}
+                    <div class="single-products">
+
+                        <div class="productinfo text-center">
+                            <img src="{{ asset('uploads/images/' ~ rs.image) }}" class="center-block"   style="border-radius: 3%; height: 200px; width: 200px" alt="" />
+                            <h3 class="align-content-xl-start">{{ rs.title }}</h3>
+                            <a href="{{ path('dernek_show', {'id': rs.id}) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>İncele</a>
+                        </div>
+
+                        {% endfor %}
+                    </div>
+
+
+                </div>
+
+                <div class="col-sm-4">
+
+                </div>
+
+                <div class="col-sm-4">
+
+                </div>
+
+                <div class="col-sm-4">
+
+                </div>
+
+                <div class="col-sm-4">
+
+                </div>
+
+                <div class="col-sm-4">
+
+                </div>
+
+            </div><!--features_items-->
+
+
+
+        </div>
+    </div>
+    </div>
+    </section>
+
+{% endblock %}

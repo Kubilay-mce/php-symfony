@@ -1,0 +1,85 @@
+{% extends 'homebase1.html.twig' %}
+
+{% block title %}{{ app.user.name }}Profile{% endblock %}
+
+{% block body %}
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="left-sidebar">
+
+
+                        {{ include('user/usermenu.html.twig') }}
+
+
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="blog-post-area">
+                        <h2 class="title text-center">User Panel</h2>
+                        <div class="single-blog-post">
+                            <h3 class="title text-center">İlanlar</h3>
+                            <div class="post-meta">
+
+
+                                <table class="table">
+                                    <h3><a class="btn btn-primary" href="{{ path('user_dernek_new') }}">İlan Oluştur</a>
+                                    </h3>
+                                    <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Title</th>
+                                        <th>Image</th>
+                                        <th>Email</th>
+                                        <th>City</th>
+                                        <th>Gallery</th>
+                                        <th>Status</th>
+                                        <th>Düzenle</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for dernek in derneks %}
+                                        <tr>
+                                            <td>{{ dernek.id }}</td>
+                                            <td>{{ dernek.title }}</td>
+                                            <td><img src="{{ asset('uploads/images/' ~ dernek.image) }}"
+                                                     style="width: 40px">
+                                            <td>{{ dernek.email }}</td>
+                                            <td>{{ dernek.city }}</td>
+                                            <td>
+                                                <a href="javascript:openWin('{{ path('user_dernek_new',{'id':dernek.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=50,left=100,menuBar=no,scrollBars=yes,resizable=no,width=900,height=600');">
+                                                    <img src="{{ asset('assets/admin/img') }}/gallery.png"
+                                                         style="width: 40px">
+                                                </a>
+                                            </td>
+                                            <td>{{ dernek.status }}</td>
+                                            <td>
+                                                <a class="btn btn-primary btn-sm"
+                                                   href="{{ path('user_dernek_show', {'id': dernek.id}) }}">Show</a>
+                                                <a class="btn btn-primary btn-sm"
+                                                   href="{{ path('user_dernek_edit', {'id': dernek.id}) }}">Edit</a>
+                                            </td>
+                                            <td>
+                                                {{ include('admin/dernek/_delete_form.html.twig') }}
+
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="17">no records found</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </div><!--/blog-post-area-->
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

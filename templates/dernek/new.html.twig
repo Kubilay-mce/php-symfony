@@ -1,0 +1,38 @@
+{% extends 'homebase1.html.twig' %}
+
+{% block title %}{{ app.user.name }}Profile{% endblock %}
+
+{% block body %}
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="left-sidebar">
+
+
+                        {{ include('user/usermenu.html.twig') }}
+
+
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="blog-post-area">
+                        <h2 class="title text-center">User Panel</h2>
+                        <div class="single-blog-post">
+                            <h3 class="title text-center">İlanlar</h3>
+                            <div class="post-meta">
+                                <h3 style="color: #4F0800" class="title text-center">Yeni İlan Oluştur</h3>
+
+                                {{ include('admin/dernek/_form.html.twig') }}
+
+                                <a class="btn btn-danger" href="{{ path('user_dernek_index') }}">back to list</a>
+
+                            </div>
+                        </div>
+                    </div><!--/blog-post-area-->
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

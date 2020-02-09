@@ -1,0 +1,132 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Dernek{% endblock %}
+
+{% block body %}
+    <h1>Dernek</h1>
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Full Width</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Library</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ dernek.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ dernek.title }}</td>
+            </tr>
+            <tr>
+                <th>Keywords</th>
+                <td>{{ dernek.keywords }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ dernek.description }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ dernek.image }}</td>
+            </tr>
+            <tr>
+                <th>Star</th>
+                <td>{{ dernek.star }}</td>
+            </tr>
+            <tr>
+                <th>Adress</th>
+                <td>{{ dernek.adress }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ dernek.phone }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ dernek.fax }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ dernek.email }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ dernek.city }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ dernek.country }}</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>{{ dernek.location }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ dernek.status }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ dernek.createdAt ? dernek.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ dernek.updatedAt ? dernek.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn-success" href="{{ path('admin_dernek_index') }}">back to list</a>
+
+    <a class="btn-success" href="{{ path('admin_dernek_edit', {'id': dernek.id}) }}">edit</a>
+
+    {{ include('admin/dernek/_delete_form.html.twig') }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+</div>
+{% endblock %}

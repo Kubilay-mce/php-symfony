@@ -1,0 +1,56 @@
+
+
+
+
+
+
+
+
+
+<section>
+    <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+
+
+        <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title"><a href="#">User Panel</a></h2>
+                    <a href="/user"><img src="{{ asset ('uploads/images/' ~ app.user.image) }}" class="img-circle elevation-2"
+                                             style="border-radius: 40%" height="100   " alt="User Image"><i class="icon-lock"></i>{{ app.user.name }} {{ app.user.surname }}</a>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a href="/user">My Profile</a></h4>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a href="#">My Derneks</a></h4>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4   class="panel-title"><a href="/user/comments">Comments</a></h4>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a href="/user/dernek">İlanlar</a></h4>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a href="#">Eski İlanlar</a></h4>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a class="btn btn-danger" href="/logout">Logout</a></h4>
+                </div>
+            </div>
+
+        </div>
+
+    </div><!--/category-products-->
+</section>
